@@ -1,7 +1,7 @@
 "main api entry"
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from api.routers import router
+from .routers import router
 
 api = FastAPI(
     title="Chat Agent",
