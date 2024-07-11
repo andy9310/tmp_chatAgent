@@ -79,7 +79,8 @@ async def question(message: Annotated[str, Body(media_type="application/json")])
         if verify_token(message):
             response = await forward(message)
         else:
-            response = 
+            response = {'answer': 'wrong authentication'}
+            
         response_timestamp =datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")[:-3]
         logger.info("[INFO][WEB-SERVICE][PostQuestion] receive answer: %s, %s",
                     response["answer"], response_timestamp)
