@@ -167,7 +167,7 @@ async def jwtGenerator():
     new_token = generate_jwt(token)
     print(f"token: {new_token}")
     write_secret_file({"hashed_jwt":new_token})
-    return {"status": "success"}
+    return {"token": new_token}
 
 @router.post("/", status_code=200)
 async def jwtGenerator(request: Annotated[JWTrequest, Body(media_type="application/json")]):
